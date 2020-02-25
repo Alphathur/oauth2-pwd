@@ -58,9 +58,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     auth.authenticationProvider(authenticationProvider());
   }
 
-  /**
-   * 将AuthenticationManager暴露到bean中
-   */
   @Override
   @Bean
   public AuthenticationManager authenticationManagerBean() throws Exception {

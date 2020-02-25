@@ -14,8 +14,26 @@ spring:
 server:
   port: 8083
 
-auth2:
+client-config:
   enabled: true
-  certPath: /Users/zhuhuiyuan/Downloads
-  clientId: cmb_kg
-  clientSecret: ruyiruyi
+  clientId: client-pwd
+  clientSecret: mypass
+  authorizedGrantTypes: password,refresh_token
+  resourceIds: auth-server
+  scope: read,write
+  accessTokenValidity: 3600
+  refreshTokenValidity: 36000
+  scopeRequire: true
+  secretRequire: true
+
+#
+#  Client client = new Client();
+#  client.setClientId(clientId);
+#  client.setAuthorizedGrantTypes("password,refresh_token");
+#  client.setAccessTokenValidity(3600 * 10);
+#  client.setClientSecret("{bcrypt}$2a$10$COmo8Sf6R1f4R6Yilhf5ruOEzyNLY.XDr3Ga55zbAjaennLKkAl88");
+#  client.setRefreshTokenValidity(3600 * 20);
+#  client.setResourceIds("auth-resource");
+#  client.setScope("read,write");
+#  client.setScopeRequire(true);
+#  client.setSecretRequire(true);

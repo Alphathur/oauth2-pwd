@@ -35,9 +35,7 @@ import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFacto
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
   private final MyUserDetailService myUserDetailService;
-
   private final AuthenticationManager authenticationManager;
-
   private final MyClientDetailsService clientDetailsService;
 
   @Autowired
@@ -100,8 +98,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     security.allowFormAuthenticationForClients();
   }
 
-  // -------------次要配置⚠️每个资源服务都需要配置以下内容！！！-------------------
-
   /**
    * 配置AccessToken的存储方式，这里选用JwtTokenStore
    */
@@ -143,16 +139,14 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         return validity;
       }
     }
-    // default 1 minute.
     int accessTokenValiditySeconds = 60 * 1;
     return accessTokenValiditySeconds;
   }
 
 
   /**
-   * Token令牌的解码器
+   * 增强版Token令牌的解码器
    */
-
   @Bean
   public JwtAccessTokenConverter accessTokenConverter() {
 
@@ -166,7 +160,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
             .getPrincipal();
 
         final Map<String, Object> additionalInformation = new HashMap<>(1);
-        additionalInformation.put("addition", user.getAdditionalInformation());
+        additionalInformation.put("ext-info", user.getAdditionalInformation());
         ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInformation);
 
         return super.enhance(accessToken, authentication);
@@ -180,10 +174,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     //配置证书
     KeyStoreKeyFactory keyStoreKeyFactory = new KeyStoreKeyFactory(
-        new ClassPathResource("jwt-key.jks"),
-        "ruyiruyi".toCharArray()
+        new ClassPathResource("mytest.jks"),
+        "mypass".toCharArray()
     );
-    accessTokenConverter.setKeyPair(keyStoreKeyFactory.getKeyPair("cmb-key"));
+    accessTokenConverter.setKeyPair(keyStoreKeyFactory.getKeyPair("mytest"));
     return accessTokenConverter;
   }
 
@@ -194,5 +188,4 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     defaultUserAuthenticationConverter.setUserDetailsService(myUserDetailService);
     return defaultUserAuthenticationConverter;
   }
-
 }
