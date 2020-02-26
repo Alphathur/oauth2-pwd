@@ -109,7 +109,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
    */
   @Bean
   public TokenStore tokenStore() {
-    RedisTokenStore redis = new RedisTokenStore(connectionFactory){
+    return new RedisTokenStore(connectionFactory){
+//    return new JwtTokenStore(accessTokenConverter()) {
       @Override
       public OAuth2Authentication readAuthentication(OAuth2AccessToken token) {
         OAuth2Authentication authentication = super.readAuthentication(token);
@@ -134,7 +135,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         return authentication;
       }
     };
-    return redis;
   }
 
   protected int getAccessTokenValiditySeconds(OAuth2Request clientAuth) {
