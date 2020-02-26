@@ -3,6 +3,7 @@ package com.example.oauth2pwd.model;
 import com.example.oauth2pwd.common.UserRole;
 import com.example.oauth2pwd.common.UserRoleConverter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
@@ -15,7 +16,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
