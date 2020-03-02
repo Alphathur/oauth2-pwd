@@ -2,6 +2,7 @@ package com.example.oauth2pwd.common.auth;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -53,12 +54,12 @@ public class MyClientDetails implements ClientDetails {
 
   @Override
   public Set<String> getRegisteredRedirectUri() {
-    return null;
+    return Collections.emptySet();
   }
 
   @Override
   public Collection<GrantedAuthority> getAuthorities() {
-    return null;
+    return Collections.emptyList();
   }
 
   @Override
@@ -78,6 +79,6 @@ public class MyClientDetails implements ClientDetails {
 
   @Override
   public Map<String, Object> getAdditionalInformation() {
-    return null;
+    return Collections.emptyMap();
   }
 }
