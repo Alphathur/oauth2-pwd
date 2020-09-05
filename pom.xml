@@ -4,6 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <artifactId>oauth2-pwd</artifactId>
   <build>
+    <finalName>oauth2-pwd</finalName>
     <plugins>
       <plugin>
         <artifactId>spring-boot-maven-plugin</artifactId>
@@ -11,6 +12,10 @@
       </plugin>
     </plugins>
   </build>
+  <properties>
+    <java.version>1.8</java.version>
+  </properties>
+  <version>1.0</version>
   <dependencies>
     <dependency>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -18,6 +23,10 @@
     </dependency>
     <dependency>
       <artifactId>spring-boot-starter-security</artifactId>
+      <groupId>org.springframework.boot</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
       <groupId>org.springframework.boot</groupId>
     </dependency>
     <dependency>
@@ -72,11 +81,4 @@
     <relativePath/>
     <version>2.2.1.RELEASE</version> <!-- lookup parent from repository -->
   </parent>
-
-  <properties>
-    <java.version>1.8</java.version>
-  </properties>
-
-  <version>0.0.1-SNAPSHOT</version>
-
 </project>
