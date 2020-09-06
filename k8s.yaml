@@ -32,7 +32,7 @@ spec:
             - containerPort: 8080
           env:
             - name: MYSQL_HOST
-              value: mysql
+              value: 192.168.6.128
             - name: MYSQL_PORT
               value: '3306'
             - name: MYSQL_USERNAME
