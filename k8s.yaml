@@ -17,6 +17,9 @@ metadata:
   name: oauth-pwd-deployment
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: oauth-pwd
   template:
     metadata:
       labels:
@@ -24,7 +27,7 @@ spec:
     spec:
       containers:
         - name: oauth-pwd-controller
-          image: oauth-pwd:1.0
+          image: oauth-pwd:20200906-112634
           ports:
             - containerPort: 8080
           env:
