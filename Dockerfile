@@ -1,4 +1,4 @@
-FROM  openjdk:1.8
+FROM  openjdk:8-jdk
 
 WORKDIR /opt/
 
