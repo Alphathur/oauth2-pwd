@@ -11,7 +11,7 @@
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 07/10/2020 14:07:03
+ Date: 07/10/2020 15:49:52
 */
 
 SET NAMES utf8mb4;
@@ -37,9 +37,9 @@ CREATE TABLE `user`  (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES (1, '2020-10-07 13:00:28.000000', 'jerry@gmail.com', '2020-10-07 13:00:22.000000', '$2a$10$vaTSB5nCmmyamkQvbAgLtu030mt1mn.YN73c5xyX8BBHdTEyPGb3u', '2020-10-07 13:00:42.000000', 'ADMIN', 'jerry');
-INSERT INTO `user` VALUES (2, '2020-10-07 13:09:57.000000', 'jack@gmail.com', '2020-10-07 13:10:08.000000', '$10$vaTSB5nCmmyamkQvbAgLtu030mt1mn.YN73c5xyX8BBHdTEyPGb3u', '2020-10-07 13:10:18.000000', 'DEVELOPER', 'jack');
-INSERT INTO `user` VALUES (3, '2020-10-07 13:10:45.000000', 'tom@gmail.com', '2020-10-07 13:10:54.000000', '$10$vaTSB5nCmmyamkQvbAgLtu030mt1mn.YN73c5xyX8BBHdTEyPGb3u', '2020-10-07 13:11:00.000000', 'MEMBER', 'tom');
-INSERT INTO `user` VALUES (4, '2020-10-07 13:11:41.000000', 'dannie', '2020-10-07 13:11:36.000000', '$10$vaTSB5nCmmyamkQvbAgLtu030mt1mn.YN73c5xyX8BBHdTEyPGb3u', '2020-10-07 13:11:30.000000', 'GUEST', 'dannie');
-INSERT INTO `user` VALUES (5, '2020-10-07 13:12:26.000000', 'tony', '2020-10-07 13:12:20.000000', '$10$vaTSB5nCmmyamkQvbAgLtu030mt1mn.YN73c5xyX8BBHdTEyPGb3u', '2020-10-07 13:12:14.000000', 'ROOT', 'tony');
+INSERT INTO `user` VALUES (2, '2020-10-07 13:09:57.000000', 'jack@gmail.com', '2020-10-07 13:10:08.000000', '$2a$10$vaTSB5nCmmyamkQvbAgLtu030mt1mn.YN73c5xyX8BBHdTEyPGb3u', '2020-10-07 13:10:18.000000', 'DEVELOPER', 'jack');
+INSERT INTO `user` VALUES (3, '2020-10-07 13:10:45.000000', 'tom@gmail.com', '2020-10-07 13:10:54.000000', '$2a$10$vaTSB5nCmmyamkQvbAgLtu030mt1mn.YN73c5xyX8BBHdTEyPGb3u', '2020-10-07 13:11:00.000000', 'MEMBER', 'tom');
+INSERT INTO `user` VALUES (4, '2020-10-07 13:11:41.000000', 'dannie', '2020-10-07 13:11:36.000000', '$2a$10$vaTSB5nCmmyamkQvbAgLtu030mt1mn.YN73c5xyX8BBHdTEyPGb3u', '2020-10-07 13:11:30.000000', 'GUEST', 'dannie');
+INSERT INTO `user` VALUES (5, '2020-10-07 13:12:26.000000', 'tony', '2020-10-07 13:12:20.000000', '$2a$10$vaTSB5nCmmyamkQvbAgLtu030mt1mn.YN73c5xyX8BBHdTEyPGb3u', '2020-10-07 13:12:14.000000', 'ROOT', 'tony');
 
 SET FOREIGN_KEY_CHECKS = 1;
