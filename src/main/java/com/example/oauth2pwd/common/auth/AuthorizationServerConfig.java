@@ -2,15 +2,11 @@ package com.example.oauth2pwd.common.auth;
 
 import com.example.oauth2pwd.service.MyClientDetailsService;
 import com.example.oauth2pwd.service.MyUserDetailService;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
@@ -27,8 +23,12 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.DefaultUserAuthenticationConverter;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
-import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 @Configuration
@@ -38,8 +38,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
   private final MyUserDetailService myUserDetailService;
   private final AuthenticationManager authenticationManager;
   private final MyClientDetailsService clientDetailsService;
-  @Autowired
-  private RedisConnectionFactory connectionFactory;
+//  @Autowired
+//  private RedisConnectionFactory connectionFactory;
 
 
   @Autowired
@@ -105,16 +105,15 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
   }
 
   /**
-   * 配置RedisToken的存储方式，这里选用RedisTokenStore
+   * 配置RedisToken的存储方式，这里选用JwtTokenStore
    */
   @Bean
   public TokenStore tokenStore() {
-    return new RedisTokenStore(connectionFactory){
-//    return new JwtTokenStore(accessTokenConverter()) {
+//    return new RedisTokenStore(connectionFactory){
+    return new JwtTokenStore (accessTokenConverter()) {
       @Override
       public OAuth2Authentication readAuthentication(OAuth2AccessToken token) {
         OAuth2Authentication authentication = super.readAuthentication(token);
-
         //自动续期token start
         if (authentication != null) {
           // 如果token没有失效  更新AccessToken过期时间
@@ -129,7 +128,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
           storeAccessToken(token, authentication);
         }
         //end
-
         //添加额外信息
         authentication.setDetails(token.getAdditionalInformation());
         return authentication;
@@ -149,7 +147,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     return accessTokenValiditySeconds;
   }
 
-  //add new line
   /**
    * 增强版Token令牌的解码器
    */

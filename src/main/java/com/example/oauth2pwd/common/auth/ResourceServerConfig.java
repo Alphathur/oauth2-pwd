@@ -38,6 +38,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         .and()
         /* 注册路径匹配规则，以及需要登录的角色权限 */
         .authorizeRequests()
+        .antMatchers("/actuator/health").permitAll()
         .antMatchers("/oa/**").permitAll()
         .antMatchers("/**").authenticated();
   }

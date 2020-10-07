@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-  @RequestMapping("/")
+  @RequestMapping("/hi")
   public String hello() {
     return "hello, simple-auth";
   }
