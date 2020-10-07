@@ -21,7 +21,7 @@ output example
 }
 ```
 
-### Use jwt token in http request header
+### Use access token in http request header
 ```bash
 curl -H'Authorization:Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiYXV0aC1zZXJ2ZXIiXSwidXNlcl9uYW1lIjoidG9ueSIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJleHQtaW5mbyI6eyJ1c2VySWQiOjV9LCJleHAiOjE2MDIwNjA2MzksImF1dGhvcml0aWVzIjpbIlJPT1QiXSwianRpIjoiZjU3NGM4Y2QtNzZiYi00NjQzLWIwMTYtNTA3NTVjNTgwN2Y0IiwiY2xpZW50X2lkIjoiY2xpZW50LXB3ZCJ9.dUWpSYyRLMhbJddtSRVRpgX5OiXZwSUJQaSVxOuY1VFYOavaVyC-ZTEwIe8uiJoMjceBgQ295u-HHeTNrLdMxT5stkCeQ4Te__GEhBt0dYaHBfwHcjao1ofTBSZ5pgKZj00-lP-WGIk0IFwBZKmtcIjVUUhpzAjGTl9whpNC4hd2Jb3K5Np_rsAD4ah22Ck8gRskMFBbAvyeRPSJVT52YTWtEbB17RFH-gFKC9t2lwQmUZvzHtpJChVGJl7Szrgc_ae14MDa55e5lVs2asLnCz-kVr3j4yzPuIpzV9cvG4KtHAts4-DtYfuKtPYzqql_O8bF__LSQOW52fK3r1iA2Q' -XGET 'http://192.168.137.1:8080/user'
 ```
