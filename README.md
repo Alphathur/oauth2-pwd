@@ -91,13 +91,13 @@ docker exec -it mariadb /bin/bash
 mysql -hlocalhost -uroot -pmysql520
 ```
 ```bash
-create database demo
+create database demo;
 ```
 ```bash
-use demo
+use demo;
 ```
 ```bash
-source user.sql
+source user.sql;
 ```
 ### Start spring boot application
 ```bash
