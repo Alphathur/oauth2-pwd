@@ -79,6 +79,9 @@ output example
 ## Run in docker
 ### Start mysql and execute sql script
 ```bash
+docker network create mysql-network
+```
+```bash
 docker run -d  -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mysql520  -v /opt/data/mysql:/var/lib/mysql --name mariadb --net=mysql-network  --network-alias mysql  mariadb:10.3
 ```
 ```bash
